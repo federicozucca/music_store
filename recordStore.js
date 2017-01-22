@@ -17,8 +17,11 @@ RecordStore.prototype={
     return this.records;
   },
   sellRecord(record,quantity){
-    this.balance +=record.price;
-    record.quantity -=quantity;
+    if (record.quantity>0){
+      this.balance +=record.price;
+      record.quantity -=quantity;
+    }
+    else {console.log(record.title + " of ", record.artist + " is 'OUT OF STOCK'")}
   },
   inventory(){
     this.inventoryValue = 0;

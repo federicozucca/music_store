@@ -9,6 +9,7 @@ describe("Store", function(){
   var record2;
   var record3;
   var record4;
+  var record5;
 
   beforeEach(function(){
     store = new Store("Fede's Music Store", "Cagliari");
@@ -16,6 +17,7 @@ describe("Store", function(){
     record2 = new Record( "Iron Maiden", "Fear of the dark", 15, 50);
     record3 = new Record( "Guns and Roses", "G N' R Lies", 10, 30);
     record4 = new Record( "Led Zeppelin", "Led Zeppelin IV", 10,90);
+    record5 = new Record( "The Beatles", "Abbey Road", 10,0);
   })
 
   it("Should have a name", function() {
@@ -61,7 +63,7 @@ describe("Store", function(){
     assert.equal(35, store.balance)
   });
 
-  it("Should sell records decreasing the quantity of records", function() {
+  it("Should sell records if there is the quantity requested, decreasing the quantity of records", function() {
     store.addRecord(record1);
     store.addRecord(record2);
     store.addRecord(record3);
@@ -69,6 +71,14 @@ describe("Store", function(){
     store.sellRecord(record1,2);
         assert.equal(98, record1.quantity)
   });
+
+  it("Should print a message out of stock if there is not record availability", function() {
+    store.addRecord(record5);
+    store.sellRecord(record5,1);
+        assert.equal(0, record5.quantity)
+  });
+
+
 
   it("Should give us the value of the inventory", function() {
     store.addRecord(record1);

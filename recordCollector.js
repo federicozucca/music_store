@@ -7,8 +7,10 @@ var RecordCollector = function(name, balance){
 
 RecordCollector.prototype={
   buyRecord(record){
-    this.records.push(record);
-    this.balance -=record.price;
+    if( this.balance > record.price){
+      this.records.push(record);
+      this.balance -=record.price;
+    }
   },
   sellRecord(record){
     var indexOfItem = this.records.indexOf(record);
@@ -20,4 +22,4 @@ RecordCollector.prototype={
 
 
 
-  module.exports = RecordCollector;
+module.exports = RecordCollector;
