@@ -11,6 +11,7 @@ RecordCollector.prototype={
       this.records.push(record);
       this.balance -=record.price;
     }
+    else {console.log("unfortunately you do not have enough money for this record. There are missing " + (record.price - this.balance) + "£")}
   },
   sellRecord(record){
     var indexOfItem = this.records.indexOf(record);
