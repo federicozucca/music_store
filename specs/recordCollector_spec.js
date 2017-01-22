@@ -10,7 +10,7 @@ describe("Collector", function(){
   var record2;
   var record3;
   var record4;
-  var record5;
+  var record6;
   var collector;
 
   beforeEach(function(){
@@ -19,7 +19,7 @@ describe("Collector", function(){
     record2 = new Record( "Iron Maiden", "Fear of the dark", 15, 50);
     record3 = new Record( "Guns and Roses", "G N' R Lies", 10, 30);
     record4 = new Record( "Led Zeppelin", "Led Zeppelin IV", 10,90);
-    record5 = new Record( "Secret", "Unbelievable price", 10,1090);
+    record6 = new Record( "Secret", "Unbelievable price", 10,2000);
     collector = new Collector( "Federico", 1000)
   })
 
@@ -37,7 +37,7 @@ describe("Collector", function(){
   })
 
   it("Should not buy if not enough money", function() {
-    collector.buyRecord(record5);
+    collector.buyRecord(record6);
   })
 
   it("Should buy adding in his collection", function() {

@@ -7,7 +7,7 @@ var RecordCollector = function(name, balance){
 
 RecordCollector.prototype={
   buyRecord(record){
-    if( this.balance > record.price){
+    if( this.balance >= record.price){
       this.records.push(record);
       this.balance -=record.price;
     }
